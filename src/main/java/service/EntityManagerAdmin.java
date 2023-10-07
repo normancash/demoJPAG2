@@ -8,7 +8,7 @@ import javax.xml.stream.events.EntityReference;
 
 public class EntityManagerAdmin {
     private static EntityManager instance;
-    private static final String UNIDAD = "DEMOJPA";
+    private static final String UNIDAD = "DEMOSQLSERVER";
     public static EntityManager getInstance() {
         if (instance == null) {
             EntityManagerFactory emf = Persistence
