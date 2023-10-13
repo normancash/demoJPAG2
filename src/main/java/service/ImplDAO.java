@@ -46,6 +46,7 @@ public class ImplDAO implements IDAO{
         try {
             em.getTransaction().begin();
             em.remove(em.merge(entity));
+            em.flush();
             em.getTransaction().commit();
         }
         catch(Exception e){
@@ -63,6 +64,7 @@ public class ImplDAO implements IDAO{
         try {
             em.getTransaction().begin();
             em.persist(entity);
+            em.flush();
             em.getTransaction().commit();
         }
         catch(Exception e){
@@ -81,6 +83,7 @@ public class ImplDAO implements IDAO{
         try {
             em.getTransaction().begin();
             entityUpdate = em.merge(entity);
+            em.flush();
             em.getTransaction().commit();
         }
         catch(Exception e){

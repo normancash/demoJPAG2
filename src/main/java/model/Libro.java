@@ -17,7 +17,9 @@ public class Libro {
 
     private String descripcion;
 
-    private String autor;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="autor_id",referencedColumnName = "id")
+    private Autor autor;
 
     @Override
     public String toString() {
@@ -30,7 +32,7 @@ public class Libro {
     public Libro() {
     }
 
-    public Libro(Integer id, String name, String descripcion, String autor) {
+    public Libro(Integer id, String name, String descripcion, Autor autor) {
         this.id = id;
         this.name = name;
         this.descripcion = descripcion;
@@ -61,11 +63,11 @@ public class Libro {
         this.descripcion = descripcion;
     }
 
-    public String getAutor() {
+    public Autor getAutor() {
         return autor;
     }
 
-    public void setAutor(String autor) {
+    public void setAutor(Autor autor) {
         this.autor = autor;
     }
 }
