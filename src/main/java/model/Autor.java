@@ -2,6 +2,8 @@ package model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="Autor")
 @NamedQueries(
@@ -16,6 +18,9 @@ public class Autor {
 
     private String nombre;
     private String apellido;
+
+    @OneToMany(mappedBy = "autor",cascade = CascadeType.ALL)
+    private List<Libro> libros;
 
     public Autor(Integer id, String nombre, String apellido) {
         this.id = id;
@@ -57,5 +62,13 @@ public class Autor {
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 '}';
+    }
+
+    public List<Libro> getLibros() {
+        return libros;
+    }
+
+    public void setLibros(List<Libro> libros) {
+        this.libros = libros;
     }
 }
